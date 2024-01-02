@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="root" prefHeight="600.0" prefWidth="800.0" stylesheets="@../../../styles/theme2.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.Interface.UserInterfaceController">
+   <children>
+      <VBox alignment="CENTER" layoutY="25.0" prefHeight="634.0" prefWidth="806.0" spacing="20.0" styleClass="main">
+         <Text fill="#4f4f4f" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Encryption and Decryption Application">
+            <font>
+               <Font size="22.0" />
+            </font>
+            <VBox.margin>
+               <Insets top="-10.0" />
+            </VBox.margin>
+         </Text>
+         <HBox>
+            <children>
+               <Label prefHeight="20.0" prefWidth="157.0" style="-fx-font-weight: bold;" text="Choose an algorithm: ">
+                  <font>
+                     <Font size="14.0" />
+                  </font></Label>
+               <ChoiceBox fx:id="choiceBox1" prefHeight="25.0" prefWidth="141.0" />
+               <Label prefHeight="20.0" prefWidth="142.0" style="-fx-font-weight: bold;" text="Encrypt or Decrypt:">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+                  <HBox.margin>
+                     <Insets left="45.0" />
+                  </HBox.margin>
+               </Label>
+               <ChoiceBox fx:id="choiceBox2" prefHeight="25.0" prefWidth="141.0">
+                  <HBox.margin>
+                     <Insets />
+                  </HBox.margin>
+               </ChoiceBox>
+            </children>
+            <VBox.margin>
+               <Insets />
+            </VBox.margin>
+         </HBox>
+         <Line endX="100.0" startX="-622.153076171875" startY="2.6206174879916944E-5" stroke="#776f6f">
+            <VBox.margin>
+               <Insets bottom="-7.0" top="-5.0" />
+            </VBox.margin>
+         </Line>
+         <VBox fx:id="main" spacing="20.0">
+            <children>
+               <HBox fx:id="loadFromDB" prefHeight="4.0" prefWidth="726.0" spacing="10.0">
+                  <children>
+                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Load encryted text or key from database">
+                        <HBox.margin>
+                           <Insets bottom="-10.0" />
+                        </HBox.margin>
+                     </Text>
+                     <ChoiceBox fx:id="choiceBox3" prefWidth="150.0">
+                        <HBox.margin>
+                           <Insets right="10.0" top="-5.0" />
+                        </HBox.margin>
+                     </ChoiceBox>
+                     <HBox fx:id="radioBox1" prefHeight="100.0" prefWidth="200.0" spacing="5.0" />
+                     <Button mnemonicParsing="false" onAction="#loadFromDB" text="Load">
+                        <HBox.margin>
+                           <Insets left="15.0" top="-5.0" />
+                        </HBox.margin>
+                     </Button>
+                  </children>
+                  <VBox.margin>
+                     <Insets bottom="-10.0" />
+                  </VBox.margin>
+               </HBox>
+               <HBox>
+                  <children>
+                     <VBox>
+                        <children>
+                           <HBox prefHeight="40.0" prefWidth="724.0">
+                              <children>
+                                 <Label style="-fx-font-weight: bold;" text="Input your text below " />
+                                 <Label style="-fx-font-weight: bold;" text="Or:  " translateX="20.0" />
+                                 <Button mnemonicParsing="false" onAction="#loadTextFromFile" text="Load a local file" translateX="20.0" translateY="-5.0" />
+                              </children>
+                              <VBox.margin>
+                                 <Insets bottom="-10.0" top="10.0" />
+                              </VBox.margin>
+                           </HBox>
+                           <Text fx:id="inputHint" fill="#d16b54" strokeType="OUTSIDE" strokeWidth="0.0" />
+                           <TextArea fx:id="inputText" prefHeight="85.0" prefWidth="724.0" wrapText="true">
+                              <VBox.margin>
+                                 <Insets right="20.0" />
+                              </VBox.margin>
+                           </TextArea>
+                        </children>
+                     </VBox>
+                     <VBox fx:id="inPutKeyBox" prefHeight="142.0" prefWidth="654.0">
+                        <children>
+                           <HBox prefHeight="40.0" prefWidth="724.0">
+                              <children>
+                                 <Label style="-fx-font-weight: bold;" text="Input your key below " />
+                                 <Label style="-fx-font-weight: bold;" text="Or:  " translateX="20.0" />
+                                 <Button mnemonicParsing="false" onAction="#loadKeyFromFile" text="Load a local file" translateX="20.0" translateY="-5.0" />
+                              </children>
+                              <VBox.margin>
+                                 <Insets bottom="-10.0" top="10.0" />
+                              </VBox.margin>
+                           </HBox>
+                           <Text fx:id="keyHint" fill="#d16b54" strokeType="OUTSIDE" strokeWidth="0.0" />
+                           <TextArea fx:id="inputKey" prefHeight="86.0" prefWidth="312.0" wrapText="true">
+                              <VBox.margin>
+                                 <Insets right="10.0" />
+                              </VBox.margin></TextArea>
+                        </children>
+                     </VBox>
+                  </children>
+               </HBox>
+               <HBox>
+                  <children>
+                      <Button fx:id="encryptButton" onAction="#onEncryptButtonClick" text="Encrypt">
+                        <HBox.margin>
+                           <Insets top="-5.0" />
+                        </HBox.margin></Button>
+                      <Button fx:id="decryptButton" onAction="#onDecryptButtonClick" text="Decrypt" translateX="-57.0">
+                        <HBox.margin>
+                           <Insets top="-5.0" />
+                        </HBox.margin></Button>
+                  </children>
+               </HBox>
+               <Line endX="100.0" startX="-622.153076171875" startY="2.6206174879916944E-5" stroke="#776f6f">
+                  <VBox.margin>
+                     <Insets bottom="10.0" top="-10.0" />
+                  </VBox.margin>
+               </Line>
+               <VBox prefHeight="99.0" prefWidth="726.0">
+                  <children>
+                     <HBox>
+                        <children>
+                           <VBox>
+                              <children>
+                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Encrypted Text">
+                                    <VBox.margin>
+                                       <Insets bottom="5.0" />
+                                    </VBox.margin></Text>
+                                 <TextArea fx:id="outputText" prefHeight="97.0" prefWidth="535.0" style="-fx-background-color: #f7f0df;" wrapText="true">
+                                    <VBox.margin>
+                                       <Insets right="20.0" />
+                                    </VBox.margin>
+                                 </TextArea>
+                                 <Button mnemonicParsing="false" onAction="#saveTextToFile" text="Save as a file" translateX="20.0" translateY="10.0" />
+                              </children>
+                           </VBox>
+                           <VBox fx:id="outPutKeyBox">
+                              <children>
+                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Generated Key">
+                                    <VBox.margin>
+                                       <Insets bottom="5.0" />
+                                    </VBox.margin></Text>
+                                 <TextArea fx:id="outputKey" prefHeight="97.0" prefWidth="452.0" style="-fx-background-color: #f7f0df;" wrapText="true">
+                                    <VBox.margin>
+                                       <Insets right="10.0" />
+                                    </VBox.margin>
+                                 </TextArea>
+                                 <Button mnemonicParsing="false" onAction="#saveKeyToFile" text="Save as a file" translateX="20.0" translateY="10.0" />
+                              </children>
+                           </VBox>
+                        </children>
+                        <VBox.margin>
+                           <Insets />
+                        </VBox.margin>
+                     </HBox>
+                  </children>
+                  <padding>
+                     <Insets top="-20.0" />
+                  </padding>
+               </VBox>
+               <HBox fx:id="saveToDB" prefHeight="4.0" prefWidth="726.0" spacing="10.0">
+                  <children>
+                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Save encryted text or key to database" />
+                     <TextField fx:id="setName">
+                        <HBox.margin>
+                           <Insets right="10.0" top="-5.0" />
+                        </HBox.margin>
+                     </TextField>
+                     <HBox fx:id="radioBox2" prefHeight="100.0" prefWidth="200.0" spacing="5.0" />
+                     <Button mnemonicParsing="false" onAction="#saveToDB" text="Save">
+                        <HBox.margin>
+                           <Insets left="15.0" top="-5.0" />
+                        </HBox.margin>
+                     </Button>
+                  </children>
+                  <VBox.margin>
+                     <Insets />
+                  </VBox.margin>
+               </HBox>
+            </children>
+         </VBox>
+         <padding>
+            <Insets bottom="40.0" left="40.0" right="40.0" top="20.0" />
+         </padding>
+      </VBox>
+      <HBox layoutX="-4.0" prefHeight="56.0" prefWidth="806.0" styleClass="header">
+         <children>
+            <ImageView fitHeight="34.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="10.0">
+               <image>
+                  <Image url="@../../../images/admin.jpg" />
+               </image>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </ImageView>
+            <Text fx:id="user" fill="#d16b54" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="USER, loged in" translateX="30.0" translateY="18.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <ImageView fx:id="setting" fitHeight="23.0" fitWidth="23.0" onMouseClicked="#userSetting" pickOnBounds="true" preserveRatio="true" translateX="530.0" translateY="15.0">
+               <image>
+                  <Image url="@../../../images/setting.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <Button mnemonicParsing="false" onAction="#logout" text="Log Out" translateX="540.0" translateY="14.0" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

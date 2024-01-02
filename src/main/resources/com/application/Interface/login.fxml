@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #f7f0df;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.Interface.LoginController">
+   <children>
+      <TextField fx:id="username" layoutX="326.0" layoutY="310.0" prefHeight="25.0" prefWidth="220.0" />
+      <PasswordField fx:id="password" layoutX="325.0" layoutY="357.0" prefHeight="25.0" prefWidth="220.0" />
+      <Text fill="#4f4f4f" fontSmoothingType="LCD" layoutX="206.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Username:">
+         <font>
+            <Font size="20.0" />
+         </font></Text>
+      <Text fill="#4f4f4f" fontSmoothingType="LCD" layoutX="205.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Passwords:">
+         <font>
+            <Font size="20.0" />
+         </font></Text>
+      <Button fx:id="Login" layoutX="369.0" layoutY="419.0" mnemonicParsing="false" onAction="#login" style="-fx-background-color: #4f4f4f; -fx-font-weight: BOLD;" text="Log In" textFill="#d06a53" textOverrun="CLIP" />
+      <Text fill="#4f4f4f" layoutX="92.0" layoutY="118.0" stroke="#2f2f2f" strokeType="OUTSIDE" strokeWidth="0.5" style="-fx-font-weight: bold;" text="Encryption and Decryption Application">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="82.0" fitWidth="86.0" layoutX="349.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/admin.jpg" />
+         </image></ImageView>
+      <Text fill="#d16b54" layoutX="334.0" layoutY="470.0" onMouseClicked="#registerNewAccount" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Register an account?" underline="true">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Text>
+   </children>
+</AnchorPane>

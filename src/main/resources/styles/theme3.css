@@ -1,0 +1,8 @@
+.main{
+    -fx-background-color:  #C4D8E3;
+}
+.header{
+    -fx-background-color: #7C93C3;
+    -fx-border-width: 2;
+    -fx-border-color: #F0ECE5;
+}
